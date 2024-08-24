@@ -1,10 +1,6 @@
 package com.example.entity;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-
-import jakarta.persistence.GenerationType;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -15,11 +11,35 @@ public class UserDetail {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	private String fullname;
 
 	private String email;
 
 	private String password;
+
+	@ManyToOne
+	@JoinColumn(name = "department_id")
+	private Department department;
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
 
 	public void setPassword(String password) {
 		this.password = password;
@@ -40,6 +60,15 @@ public class UserDetail {
 	public String getEmail() {
 		return email;
 	}
-	
+
+	public String getFullname() {
+		return fullname;
+	}
+
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
+	}
+
 	private String role;
+
 }
