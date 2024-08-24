@@ -12,6 +12,7 @@ import com.example.entity.UserDetail;
 
 public class CustomUserDetails implements UserDetails {
 
+	private static final long serialVersionUID = 1L;
 	private UserDetail user;
 
 	public CustomUserDetails(UserDetail user) { 
@@ -34,5 +35,4 @@ public class CustomUserDetails implements UserDetails {
 	public String getUsername() {
 		return user.getEmail();
 	}
-
 }
