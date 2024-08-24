@@ -42,19 +42,17 @@ public class HomeController {
 		if (emailExists) {
 			session.setAttribute("msg", "Email Id already exist");
 			System.out.println("Email Id already exist");
-			session.removeAttribute("msg");
 		} else {
 			UserDetail userDtls = userService.createUser(user);
 			if (userDtls != null) {
 				System.out.println("Registered Successfully");
-				session.setAttribute("msg", "Registered Successfully");
+				session.setAttribute("msg", "Registered Successfully, Now You Can Login");
 			} else {
 				System.out.println("Not Registered Successfully");
 				session.setAttribute("msg", " Not Registered");
 			}
 		}
 
-		session.removeAttribute("msg");
 
 		return "redirect:/register";
 
