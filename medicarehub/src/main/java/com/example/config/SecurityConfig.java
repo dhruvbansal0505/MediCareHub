@@ -1,4 +1,5 @@
 package com.example.config;
+
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -42,6 +43,8 @@ public class SecurityConfig {
 				.requestMatchers("/**").permitAll())
 				.formLogin(formLogin -> formLogin.loginPage("/signin").loginProcessingUrl("/login")
 						.successHandler(customSuccessHandler))
+				.logout(logout -> logout.logoutUrl("/logout").logoutSuccessUrl("/").invalidateHttpSession(true)
+						.deleteCookies("JSESSIONID"))
 				.csrf(csrf -> csrf.disable()).authenticationProvider(daoAuthenticationProvider());
 
 		return http.build();
