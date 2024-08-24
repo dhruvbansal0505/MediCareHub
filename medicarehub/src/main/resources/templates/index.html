@@ -12,12 +12,12 @@
 <body>
 	<section>
 		<!-- Hero Section -->
-		<header class="hero-section bg-warning text-dark text-center py-5">
+		<header class="hero-section  bg-light text-dark text-center py-5">
 			<div class="container">
 				<h1>Welcome to Our MediCare Hub</h1>
 				<p>Your health is our priority. Manage appointments, access
 					medical records, and get personalized care.</p>
-				<a href="#doctors" class="btn btn-light btn-lg">Learn More</a>
+				<a href="#doctors" class="btn btn-primary btn-lg">Learn More</a>
 			</div>
 		</header>
 
@@ -50,20 +50,16 @@
 						<div class="carousel-inner">
 							<!-- Slide 1 -->
 							<div class="carousel-item active">
-								<img
-									src="C:\Users\Arpit\Desktop\Dhruv college Project Sem4\app\medicarehub\src\main\resources\templates\image1.jpg"
-									class="d-block w-100" alt="About Us Image 1">
+								<img src="/images/image6.jpeg" class="d-block w-100" alt="About Us Image 1">
 							</div>
 							<!-- Slide 2 -->
 							<div class="carousel-item">
-								<img
-									src="https://localhost/images/image2.jpg/800x400?text=Image+2"
-									class="d-block w-100" alt="About Us Image 2">
+								<img src="/images/image7.jpeg" class="d-block w-100"
+									alt="About Us Image 2">
 							</div>
 							<!-- Slide 3 -->
 							<div class="carousel-item">
-								<img src="https://via.placeholder.com/800x400?text=Image+3"
-									class="d-block w-100" alt="About Us Image 3">
+								<img src="/images/image8.jpeg" class="d-block w-100" alt="About Us Image 3">
 							</div>
 						</div>
 						<!-- Carousel Controls -->
@@ -83,6 +79,7 @@
 		</section>
 
 
+
 		<!-- Doctors Section -->
 		<section id="doctors">
 			<div class="container">
@@ -90,36 +87,36 @@
 				<div class="row">
 					<div class="col-md-4">
 						<div class="card mb-4" style="box-shadow: none;">
-							<img src="image1.jpg" class="img-fluid" alt="Doctor 1">
+							<img src="/images/image5.jpeg" class="img-fluid" alt="Doctor 1">
 							<div class="card-body">
-								<h5 class="card-title">Dr. John Doe</h5>
+								<h5 class="card-title">Dr. Nakul</h5>
 								<p class="card-text">Specialist in Internal Medicine. With
-									over 20 years of experience, Dr. Doe provides exceptional care
-									and treatment for various internal health conditions.</p>
+									over 20 years of experience, Dr. Nakul provides exceptional
+									care and treatment for various internal health conditions.</p>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="card mb-4" style="box-shadow: none;">
-							<img src="doctor2-image-url.jpg" class="card-img-top"
+							<img src="/images/image4.jpeg" class="card-img-top"
 								alt="Doctor 2">
 							<div class="card-body">
-								<h5 class="card-title">Dr. Jane Smith</h5>
+								<h5 class="card-title">Dr. Anshul</h5>
 								<p class="card-text">Pediatrician specializing in child
-									health. Dr. Smith is dedicated to providing comprehensive care
+									health. Dr. Anshul is dedicated to providing comprehensive care
 									for children and adolescents.</p>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="card mb-4" style="box-shadow: none;">
-							<img src="doctor3-image-url.jpg" class="card-img-top"
+							<img src="/images/image3.jpeg" class="card-img-top"
 								alt="Doctor 3">
 							<div class="card-body">
-								<h5 class="card-title">Dr. Emily Johnson</h5>
-								<p class="card-text">Expert in Cardiology. Dr. Johnson
-									focuses on diagnosing and treating heart conditions with
-									advanced medical techniques.</p>
+								<h5 class="card-title">Dr. Raj</h5>
+								<p class="card-text">Expert in Cardiology. Dr. Raj focuses
+									on diagnosing and treating heart conditions with advanced
+									medical techniques.</p>
 							</div>
 						</div>
 					</div>
@@ -147,8 +144,9 @@
 						<div class="card-body text-center">
 							<i class="fa-solid fa-file-medical service-icon"></i>
 							<h5 class="card-title mt-3">Medical History</h5>
-							<p class="card-text">Access and review your complete medical
-								history securely online.</p>
+							<p class="card-text">  Access and review your complete medical
+								history securely online.
+								</p>
 						</div>
 					</div>
 				</div>
@@ -165,52 +163,6 @@
 			</div>
 		</section>
 
-
-		<!-- Divider Line -->
-		<hr class="my-5">
-
-		<!-- Contact Us Section -->
-	<section id="contact-us" class="container my-5 bg-white py-5">
-		<div class="row">
-			<div class="col-md-6">
-				<h2 class="text-center" style="font-size: 1.2rem; margin-bottom: 1rem;">Contact Us</h2>
-				<p class="text-muted" style="font-size: 0.8rem;">For any
-					inquiries or support, feel free to reach out to us. We are here to
-					assist you with your needs and provide the necessary information to
-					ensure a smooth experience with our services.</p>
-				<p class="text-muted" style="font-size: 0.8rem;">
-					<strong>Address:</strong><br> 123 Healthcare St,<br>
-					Health City, HC 12345<br> Country
-				</p>
-				<p class="text-muted" style="font-size: 0.8rem;">
-					<strong>Email:</strong><br> support@yourcompany.com
-				</p>
-				<p class="text-muted" style="font-size: 0.8rem;">
-					<strong>Phone:</strong><br> +1 (234) 567-890
-				</p>
-			</div>
-			<div class="col-md-6">
-				<form>
-					<div class="mb-3">
-						<label for="name" class="form-label" style="font-size: 0.6rem;">Name</label> <input
-							type="text" class="form-control" id="name"
-							placeholder="Your Name" required style="font-size: 0.8rem; padding: 0.5rem;">
-					</div>
-					<div class="mb-3">
-						<label for="email" class="form-label" style="font-size: 0.6rem;">Email address</label> <input
-							type="email" class="form-control" id="email"
-							placeholder="Your Email" required style="font-size: 0.8rem; padding: 0.5rem;">
-					</div>
-					<div class="mb-3">
-						<label for="message" class="form-label" style="font-size: 0.6rem;">Message</label>
-						<textarea class="form-control" id="message" rows="2"
-							placeholder="Your Message" required style="font-size: 0.8rem; padding: 0.5rem;"></textarea>
-					</div>
-					<button type="submit" class="btn btn-danger" style="font-size: 0.6rem; padding: 0.5rem 1rem;">Send Message</button>
-				</form>
-			</div>
-		</div>
-	</section>
 
 </body>
 </html>
