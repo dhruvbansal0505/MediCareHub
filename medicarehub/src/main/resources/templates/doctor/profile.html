@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Doctor Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="bg-light">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center">
+                        <!-- Avatar Icon for Doctor -->
+                        <div class="avatar mb-3">
+                            <i class="fas fa-user-md fa-7x text-muted"></i>
+                        </div>
+                        <!-- Doctor's Name -->
+                        <h4 class="card-title mb-2" th:text="${user.fullname}">Dr. John Doe</h4>
+                        <!-- Doctor's Email -->
+                        <p class="card-text text-muted mb-4">
+                            <i class="fas fa-envelope"></i> <span th:text="${user.email}">john.doe@example.com</span>
+                        </p>
+                        <!-- Doctor's Department -->
+                        <p class="mb-0">
+                            <strong>Department:</strong> <span th:text="${user.department.name}">Cardiology</span><br>
+                            <strong>Email:</strong> <span th:text="${user.email}">john.doe@example.com</span>
+                        </p>
+                    </div>
+                    <!-- Footer with Buttons -->
+                    <div class="card-footer text-center">
+                        <a href="/doctor/" class="btn btn-primary"> Home </a>
+                        <a href="/logout" class="btn btn-danger ms-2">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

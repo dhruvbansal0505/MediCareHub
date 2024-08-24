@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Doctor Dashboard</title>
+<title>Doctor's Appointments</title>
 <style>
  .profile-btn {
     transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
@@ -63,9 +63,11 @@
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 	integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
 	crossorigin="anonymous" referrerpolicy="no-referrer" />
-
 </head>
 <body>
+
+
+
 	<nav class="navbar navbar-expand-lg navbar-light bg-danger">
 		<div class="container-fluid">
 			<a class="navbar-brand text-white" href="/doctor/"> <i
@@ -87,7 +89,7 @@
 							class="fa-regular fa-calendar-check"></i> Appointment </a></li>
 					
 				</ul>
-				<div class="d-flex justify-content-center mb-3">
+					<div class="d-flex justify-content-center mb-3">
 					<div class="btn-group hover-dropdown">
 						<a
 							class="btn rounded-circle border border-primary bg-light d-flex align-items-center justify-content-center"
@@ -110,87 +112,47 @@
 		</div>
 	</nav>
 
+	<div class="container">
+		<h1 class="mb-4">Doctor Appointment List</h1>
 
 
-
-<section>
-		<!-- Hero Section -->
-		<header class="hero-section  bg-light text-dark text-center py-5">
-			<div class="container">
-				<h1>Welcome to Our MediCare Hub</h1>
-				<p>Your health is our priority. Manage appointments, access
-					medical records, and get personalized care.</p>
-				<a href="#about-us" class="btn btn-primary btn-lg">Learn More</a>
-			</div>
-		</header>
-
-		<!-- About Us Section -->
-		<section id="about-us" class="container my-5 bg-light py-5">
-			<div class="row">
-				<!-- Text Content -->
-				<div class="col-md-6 d-flex align-items-center">
-					<div>
-						<h2 class="text-dark mb-4">About Us</h2>
-						At<strong> MediCare Hub</strong>, we are dedicated to
-						revolutionizing healthcare management. Our advanced system is
-						designed to streamline and enhance the entire healthcare
-						experience for both patients and healthcare providers. Our
-						platform simplifies the process of scheduling and managing
-						appointments. Patients can book, reschedule, or cancel
-						appointments with ease, while healthcare providers can efficiently
-						manage their schedules and reduce administrative burdens. We offer
-						a range of services to ensure your health needs are met with the
-						utmost care and professionalism. Our team of experts is committed
-						to improving your health and well-being through personalized care
-						and cutting-edge technology
-					</div>
-				</div>
-
-				<!-- Image Carousel -->
-				<div class="col-md-6">
-					<div id="aboutUsCarousel" class="carousel slide"
-						data-bs-ride="carousel" data-bs-interval="2000">
-						<div class="carousel-inner">
-							<!-- Slide 1 -->
-							<div class="carousel-item active">
-								<img src="/images/image6.jpeg" class="d-block w-100" alt="About Us Image 1">
-							</div>
-							<!-- Slide 2 -->
-							<div class="carousel-item">
-								<img src="/images/image7.jpeg" class="d-block w-100"
-									alt="About Us Image 2">
-							</div>
-							<!-- Slide 3 -->
-							<div class="carousel-item">
-								<img src="/images/image8.jpeg" class="d-block w-100" alt="About Us Image 3">
-							</div>
-						</div>
-						<!-- Carousel Controls -->
-						<button class="carousel-control-prev" type="button"
-							data-bs-target="#aboutUsCarousel" data-bs-slide="prev">
-							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-							<span class="visually-hidden">Previous</span>
-						</button>
-						<button class="carousel-control-next" type="button"
-							data-bs-target="#aboutUsCarousel" data-bs-slide="next">
-							<span class="carousel-control-next-icon" aria-hidden="true"></span>
-							<span class="visually-hidden">Next</span>
-						</button>
-					</div>
-				</div>
-			</div>
-		</section>
+		<table class="table table-striped table-bordered">
+			<thead class="thead-dark">
+				<tr>
+					<th>User</th>
+					<th>Appointment Date</th>
+					<th>Status</th>
+					<th>Update Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="appointment : ${appointments}">
+					<td th:text="${appointment.user.fullname}">User Name</td>
+					<td th:text="${appointment.appointmentDate}">Appointment Date
+						And Time</td>
+					<td th:text="${appointment.status}">Status</td>
+					<td>
+						<form
+							th:action="@{/doctor/update-appointment-status/{appointmentId}(appointmentId=${appointment.id})}"
+							method="post">
+							<select name="status">
+								<option value="PENDING"
+									th:selected="${appointment.status == 'PENDING'}">Pending</option>
+								<option value="APPROVED"
+									th:selected="${appointment.status == 'APPROVED'}">Approved</option>
+								<option value="REJECTED"
+									th:selected="${appointment.status == 'REJECTED'}">Rejected</option>
+							</select>
+							<button type="submit">Update Status</button>
+						</form>
+					</td>
+				</tr>
+			</tbody>
+		</table>
 
 
-
-
-
-
-
-
-
-
-
+		<a href="/doctor/" class="btn btn-primary mt-3"> Home </a>
+	</div>
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
