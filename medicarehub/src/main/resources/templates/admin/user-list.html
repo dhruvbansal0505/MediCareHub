@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User List</title>
+    <style>
+ .profile-btn {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+} 
+
+.profile-btn:hover {
+    background-color: #007bff; 
+    border-color: #0056b3; 
+}
+
+
+.profile-btn:hover i {
+    color: #fff; 
+}
+
+
+.hover-dropdown {
+    position: relative;
+}
+
+
+.hover-dropdown .dropdown-menu {
+    display: none; 
+    position: absolute;
+    top: 85%; 
+    right: -150%;
+    margin-top: 0.125rem; 
+    z-index: 1000; 
+}
+
+.hover-dropdown:hover .dropdown-menu {
+    display: block; 
+}
+
+
+.dropdown-menu {
+    background-color: #dc3545; 
+    border-color: #dc3545; 
+}
+
+.dropdown-item {
+    color: #fff; 
+}
+
+.dropdown-item:hover {
+    background-color: #c82333; 
+}
+
+</style>
+    
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+	integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+	crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-danger">
+		<div class="container-fluid">
+			<a class="navbar-brand text-white" href="/admin/"> <i
+				class="fa-solid fa-bed-pulse"></i> MediCare Hub
+			</a>
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link text-white"
+						href="/admin/manage-users"><i class="fa-solid fa-users"></i> Users </a></li>
+					<li class="nav-item"><a class="nav-link text-white" href="/appointments/admin-list"><i
+							class="fa-regular fa-calendar-check"></i> Appointment </a></li>
+					<li class="nav-item"><a class="nav-link text-white" href="/admin/department-list"><i
+							class="fa-solid fa-file-medical"></i> Department List</a></li>
+					<li class="nav-item"><a class="nav-link text-white" href="/admin/assign-department">
+							<i class="fa-solid fa-file-invoice"></i> Assign Department
+					</a></li> 
+					<li class="nav-item"><a class="nav-link text-white" href="/admin/create-department"><i
+							class="fa-solid fa-gear"></i> Add Department </a></li>
+					
+				</ul>
+					<div class="d-flex justify-content-center mb-3">
+					<div class="btn-group hover-dropdown">
+						<a
+							class="btn rounded-circle border border-primary bg-light d-flex align-items-center justify-content-center"
+							href="#" role="button" aria-expanded="false"> <i
+							class="fas fa-user fa-2x text-dark"></i>
+						</a>
+						<ul class="dropdown-menu"
+							style="background-color: #dc3545; border-color: #dc3545;">
+							<li><a class="dropdown-item" href="/admin/profile"
+								style="color: #fff;">Profile</a></li>
+							<li><a class="dropdown-item" href="/admin/"
+								style="color: #fff;">Home</a></li>
+							<li><a class="dropdown-item" href="/logout"
+								style="color: #fff;">Logout</a></li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</nav>
+	
+	
+    <div class="container">
+        <h1 class="mb-4">User List</h1>
+      
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.id}"></td>
+                    <td th:text="${user.fullname}"></td>
+                    <td th:text="${user.email}"></td>
+                </tr>
+            </tbody>
+        </table>
+     
+        <a href="/admin/" class="btn btn-primary"> Home </a>
+    </div>
+    
+<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+</body>
+</html>
