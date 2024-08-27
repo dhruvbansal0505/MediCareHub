@@ -44,8 +44,8 @@ The MediCare Hub is a web application designed to manage various aspects of a he
 ### Cloning the Repository
 
 ```bash
-git clone https://github.com/your-repository-url.git
-cd your-repository-directory
+git clone https://github.com/dhruvbansal0505/MediCareHub.git
+cd MediCareHub
 ```
 
 ### Building the Project
@@ -67,7 +67,7 @@ mvn spring-boot:run
 Alternatively, you can run the generated JAR file:
 
 ```bash
-java -jar target/your-project-name.jar
+java -jar target/medicarehub-0.0.1-SNAPSHOT.jar
 ```
 
 ## Configuration
